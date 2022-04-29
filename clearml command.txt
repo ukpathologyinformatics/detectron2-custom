@@ -1,0 +1,18 @@
+python custom_train.py \
+--num-gpus 1 \
+--num-machines 1 \
+--machine-rank 0 \
+--clearml-run-locally \
+--clearml-proj Detectron2 \
+--clearml-task-name lesion \
+--clearml-task-type training \
+--skip-s3 \
+--config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml \
+--model-weights https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl \
+--datasets-train lesion_train \
+--datasets-test lesion_val \
+--custom-dsnames lesion_train lesion_val \
+--custom-cocojsons ./datasets/lesion_scaled/train_labels.json ./datasets/lesion_scaled/val_labels.json \
+--custom-imgroots ./datasets/lesion_scaled/lesion_data_coco/train/data ./datasets/lesion_scaled/lesion_data_coco/val/data
+
+python custom_train.py --num-gpus 1 --num-machines 1 --machine-rank 0 --clearml-run-locally --clearml-proj Detectron2 --clearml-task-name lesion --clearml-task-type training --skip-s3 --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --model-weights https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl --datasets-train lesion_train --datasets-test lesion_val --coco-dsnames lesion_train lesion_val --coco-jsons ./datasets/lesion_scaled/train_labels.json ./datasets/lesion_scaled/val_labels.json --coco-imgroots ./datasets/lesion_scaled/lesion_data_coco/train/data ./datasets/lesion_scaled/lesion_data_coco/val/data --solver-max-iter 3000 --num-classes 1 --test-eval-period 500 --solver-base-lr 0.0025
