@@ -50,5 +50,4 @@ _darcs
 /datasets/*
 !/datasets/*.*
 /projects/*/datasets
-/models
 /snippet
